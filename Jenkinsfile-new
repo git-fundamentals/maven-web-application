@@ -9,6 +9,10 @@ node
     {
         sh "${mavenhome}/bin/mvn clean package"
     }
+    stage('sonar')
+    {
+        sh "${mavenhome}/bin/mvn clean sonar:sonar"
+    }
     stage('nexus')
     {
         sh "${mavenhome}/bin/mvn clean deploy"
